@@ -9,13 +9,18 @@
     $method=$_SERVER['REQUEST_METHOD'];
     //* Process HTTP GET Request
     if($method=='GET'){
+        $contactID=$_GET["contactID"];
+        $contactDAO = new ContactDAO();
+        $contactDAO->deleteContact($contactID);
         
+        header("Location: contactListController.php");
+        exit;
    }
     
     //* Process HTTP POST Request
-    if($method=='POST'){
+    // if($method=='POST'){
 
-    }
+    // }
    
 
     function showErrors($debug){
