@@ -9,18 +9,26 @@
     $method=$_SERVER['REQUEST_METHOD'];
     //* Process HTTP GET Request
     if($method=='GET'){
-        $contactID=$_GET["contactID"];
+        $contactID=$_GET['contactID'];
         $contactDAO = new ContactDAO();
-        $contactDAO->updateContact(1);
+        $contact = $contactDAO->getContact($contactID);
         
-        header("Location: contactListController.php");
+        include "view/contactList-view.php";
         exit;
    }
     
     //* Process HTTP POST Request
-    // if($method=='POST'){
+    if($method=='POST'){
+      $contact = new Contact();
+      $contact ->contactID = $_POST['contactID'];
+      $contact->usernamer = $_POST['username'];
+      $contact->email = $_POST['email']; 
 
-    // }
+      $contactDAO = new ContactDAO();
+      $contactDAO->updateContact($contact); 
+
+      include "view/contactList-view.php"; 
+    }
    
 
     function showErrors($debug){
