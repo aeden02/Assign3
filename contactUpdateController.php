@@ -11,23 +11,16 @@
     if($method=='GET'){
         $contactID=$_GET["contactID"];
         $contactDAO = new ContactDAO();
-        $contactDAO->deleteContact($contactID);
+        $contactDAO->updateContact(1);
         
         header("Location: contactListController.php");
         exit;
    }
     
     //* Process HTTP POST Request
-     if($method=='POST'){
-        $submit = $_POST['submit'];
-        if($submit=='Confirm'){
-            $contactDAO = new ContactDAO();
-            $contactDAO->deleteContact($contactID);
-        }
-       
-        header("Location: contactListController.php");
-        exit;
-    }
+    // if($method=='POST'){
+
+    // }
    
 
     function showErrors($debug){

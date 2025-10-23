@@ -45,5 +45,14 @@
             $connection->close();
         }
 
+        public function updateContact($contactID){
+            $connection=$this->getConnection();
+            $stmt = $connection->prepare("UPDATE FROM contacts WHERE contactID = ?");
+            $stmt->bind_param("i", $contactID);
+            $stmt->execute();
+            $stmt->close();
+            $connection->close(); 
+        }
+
     }
 ?>
