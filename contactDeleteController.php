@@ -12,9 +12,10 @@
         $contactID=$_GET["contactID"];
         $contactDAO = new ContactDAO();
         $contactDAO->deleteContact($contactID);
-        
-        header("Location: contactListController.php");
+
+        include "view/contactDelete-view.php";
         exit;
+        
    }
     
     //* Process HTTP POST Request
@@ -25,7 +26,7 @@
             $contactDAO->deleteContact($contactID);
         }
        
-        header("Location: contactListController.php");
+       header("Location: contactListController.php");
         exit;
     }
    
