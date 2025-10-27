@@ -10,10 +10,10 @@
     //* Process HTTP GET Request
     if($method=='GET'){
         $contactID=$_GET["contactID"];
-        $contactDAO = new ContactDAO();
-        $contactDAO->deleteContact($contactID);
+        // $contactDAO = new ContactDAO();
+        // $contactDAO->deleteContact($contactID);
 
-        include "view/contactDelete-view.php";
+        include "views/contactDelete-view.php";
         exit;
         
    }

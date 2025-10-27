@@ -13,7 +13,7 @@
         $contactDAO = new ContactDAO();
         $contact = $contactDAO->getContact($contactID);
         
-        include "view/contactAdd-view.php";
+        include "views/contactUpdate-view.php";
         exit;
    }
     
@@ -21,14 +21,14 @@
     if($method=='POST'){
       $contact = new Contact();
       $contact ->contactID = $_POST['contactID'];
-      $contact->usernamer = $_POST['username'];
+      $contact->username = $_POST['username'];
       $contact->email = $_POST['email']; 
 
       $contactDAO = new ContactDAO();
       $contactDAO->updateContact($contact); 
 
-      header("view/contactAdd-view.php"); 
-      exit; 
+        header("Location: contactListController.php");
+       exit; 
     }
    
 
