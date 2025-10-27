@@ -23,6 +23,7 @@
                         <th>User Name</th>
                         <th>Email</th>
                         <th> </th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +34,8 @@
                         <td><?php echo $contacts[$index]->contactID ?></td>
                         <td><?php echo $contacts[$index]->username ?></td>
                         <td><?php echo $contacts[$index]->email ?></td>
-                        <td><a href ="contactDeleteController.php?contactID=<?php echo $contacts[$index]->contactID?>" class="btn btn-primary"> Delete</a></td>
+                        <td><a href ="contactDeleteController.php?contactID=<?php echo $contacts[$index]->contactID?>" class="btn btn-warning"> Delete</a></td>
+                        <td><a href="contactUpdateController.php?contactID=<?php echo $contacts[$index]->contactID?>" class="btn btn-primary"> Update</a></td>
                     </tr>
                     <?php
                         }
