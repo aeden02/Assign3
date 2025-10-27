@@ -11,18 +11,16 @@
     if($method=='GET'){
         $contactID=$_GET['contactID'];
         $contactDAO = new ContactDAO();
-        $contact = $contactDAO->getContact($contactID);
-        
+        $contact = $contactDAO->getContacts($contactID);
         include "views/contactUpdate-view.php";
         exit;
    }
     
     //* Process HTTP POST Request
     if($method=='POST'){
-      $contact = new Contact();
-      $contact ->contactID = $_POST['contactID'];
-      $contact->username = $_POST['username'];
-      $contact->email = $_POST['email']; 
+      $contactID = $_POST['contactID'];
+      $username = $_POST['username'];
+      $email = $_POST['email']; 
 
       $contactDAO = new ContactDAO();
       $contactDAO->updateContact($contact); 
