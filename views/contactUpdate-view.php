@@ -22,11 +22,11 @@
                         <h5 class="card-title">Update contacts</h5>
                         <p class="card-text">Update contact</p>
                         <form action="contactUpdateController.php" method="POST">
-                            <input type="hidden" id="contactID" name="contactID" value="<?php echo htmlspecialchars($contact->contactID) ?? '', ENT_QUOTES; ?>">
+                            <input type="hidden" id="contactID" name="contactID" value="<?php echo htmlspecialchars($contact->contactID ?? '', ENT_QUOTES); ?>">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control mb-3" id="username" name="username" value="<?php echo htmlspecialchars($contact->username) ?? '', ENT_QUOTES; ?>" required> 
+                            <input type="text" class="form-control mb-3" id="username" name="username" value="<?php echo htmlspecialchars($contact->username ?? '', ENT_QUOTES); ?>" required> 
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control mb-3" id="email" name="email" value="<?php echo htmlspecialchars($contact->email) ?? '', ENT_QUOTES; ?>" required>
+                            <input type="text" class="form-control mb-3" id="email" name="email" value="<?php echo htmlspecialchars($contact->email ?? '', ENT_QUOTES); ?>" required>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a href="contactListController.php" class="btn btn-secondary">Cancel</a>
                         </form>

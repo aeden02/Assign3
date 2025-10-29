@@ -9,18 +9,18 @@
     $method=$_SERVER['REQUEST_METHOD'];
     //* Process HTTP GET Request
     if($method=='GET'){
-        $contactID=$_GET['contactID'];
+        $contactID=intval($_GET['contactID']);
         $contactDAO = new ContactDAO();
-        $contact = $contactDAO->getContacts($contactID);
+        $contact = $contactDAO->getContact($contactID);
         include "views/contactUpdate-view.php";
         exit;
    }
     
     //* Process HTTP POST Request
     if($method=='POST'){
-      $contactID = $_POST['contactID'];
-      $username = $_POST['username'];
-      $email = $_POST['email']; 
+      $contactID = isset($_POST['contactID']) ? intval($_POST['contactID']) : 0;
+      $username = isset($_POST['username']) ? trim($_POST['username']) : '';
+      $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 
         $contact = new Contact();
         $contact->contactID = $contactID;
