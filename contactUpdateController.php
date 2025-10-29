@@ -22,6 +22,11 @@
       $username = $_POST['username'];
       $email = $_POST['email']; 
 
+        $contact = new Contact();
+        $contact->contactID = $contactID;
+        $contact->username = $username;
+        $contact->email = $email;
+
       $contactDAO = new ContactDAO();
       $contactDAO->updateContact($contact); 
 
