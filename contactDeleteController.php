@@ -9,9 +9,9 @@
     $method=$_SERVER['REQUEST_METHOD'];
     //* Process HTTP GET Request
     if($method=='GET'){
-        $contactID=$_GET["contactID"];
-        // $contactDAO = new ContactDAO();
-        // $contactDAO->deleteContact($contactID);
+        $contactID=intval($_GET["contactID"]);
+        $contactDAO = new ContactDAO();
+        $contact = $contactDAO->getContact($contactID);
 
         include "views/contactDelete-view.php";
         exit;
@@ -20,8 +20,9 @@
     
     //* Process HTTP POST Request
      if($method=='POST'){
-        $submit = $_POST['submit'];
-        if($submit=='Confirm'){
+        $contactID = isset($_POST['contactID']) ? intval($_POST['contactID']) : 0;
+        $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
+        if($contactID > 0 && $submit=='Confirm'){
             $contactDAO = new ContactDAO();
             $contactDAO->deleteContact($contactID);
         }

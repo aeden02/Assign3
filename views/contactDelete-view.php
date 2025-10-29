@@ -22,11 +22,13 @@
                         <h5 class="card-title">Delete Contact</h5>
                         <p class="card-text">Are you sure you want to delete this contact?</p>
                         <form action="contactDeleteController.php" method="POST">
+                            <input type="hidden" id="contactID" name="contactID" value="<?php echo htmlspecialchars($contact->contactID ?? '', ENT_QUOTES); ?>">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control mb-3" id="username" name="username" placeholder="Enter your Username" required>
+                            <input type="text" class="form-control mb-3" id="username" name="username" value="<?php echo htmlspecialchars($contact->username ?? '', ENT_QUOTES); ?>" required>
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control mb-3" id="email" name="email" placeholder="Enter your Email Address" required>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <input type="text" class="form-control mb-3" id="email" name="email" value="<?php echo htmlspecialchars($contact->email ?? '', ENT_QUOTES); ?>" required>
+                            <button type="submit" name="submit" value="Confirm" class="btn btn-danger">Confirm Delete</button>
+                            <a href="contactListController.php" class="btn btn-secondary">Cancel</a>
                         </form>
                     </div>
                 </div>      
