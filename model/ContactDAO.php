@@ -36,6 +36,22 @@
             return $contacts;
         }
 
+        public function getContact($contactID){
+            $connection=$this->getConnection();
+            $stmt = $connection->prepare("SELECT * FROM contacts WHERE contactID = ?;");
+            $stmt->bind_param("i", $contactID);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $contact =null;
+            if($row = $result->fetch_assoc()){
+                $contact = new Contact();
+                $contact->load($row);
+            }    
+            $stmt->close();
+            $connection->close();
+            return $contact;
+        }
+
         public function deleteContact($contactID){
             $connection=$this->getConnection();
             $stmt = $connection->prepare("DELETE FROM contacts WHERE contactID = ?");
