@@ -24,9 +24,9 @@
                         <form action="contactDeleteController.php" method="POST">
                             <input type="hidden" id="contactID" name="contactID" value="<?php echo htmlspecialchars($contact->contactID ?? '', ENT_QUOTES); ?>">
                             <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control mb-3" id="username" name="username" value="<?php echo htmlspecialchars($contact->username ?? '', ENT_QUOTES); ?>" required>
+                            <input type="text" readonly class="form-control mb-3" id="username" name="username" value="<?php echo htmlspecialchars($contact->username ?? '', ENT_QUOTES); ?>" required>
                             <label for="email" class="form-label">Email</label>
-                            <input type="text" class="form-control mb-3" id="email" name="email" value="<?php echo htmlspecialchars($contact->email ?? '', ENT_QUOTES); ?>" required>
+                            <input type="text" readonly class="form-control mb-3" id="email" name="email" value="<?php echo htmlspecialchars($contact->email ?? '', ENT_QUOTES); ?>" required>
                             <button type="submit" name="submit" value="Confirm" class="btn btn-danger">Confirm Delete</button>
                             <a href="contactListController.php" class="btn btn-secondary">Cancel</a>
                         </form>
