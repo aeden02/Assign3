@@ -7,5 +7,9 @@
         public function post(){
 
         }
+
+        public function getAccess(){
+            return "public";
+        }
     }
 ?>

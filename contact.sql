@@ -13,6 +13,16 @@ create table contacts(
    primary key(contactID)
 )engine=innodb;
 
+create table users(
+   userID int AUTO_INCREMENT,
+   username varchar(50),
+   email varchar(120),
+   passwd varchar(120),
+   urole varchar(20),
+   primary key(userID)
+)engine=innodb;
+
+
 insert into contacts(username,email) values('Jim Smith','jim.smith@gmail.com');
 insert into contacts(username,email) values('Mary Jones','mjones@gmail.com');
 insert into contacts(username,email) values('Rick Wilson','rick.wilson@gmail.com');

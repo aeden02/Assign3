@@ -25,6 +25,10 @@
         header("Location: home.php?action=list");
         exit; 
       }
+
+      public function getAccess(){
+          return "protected";
+      }
     }
     //************************
     //*  Contoller Template  *

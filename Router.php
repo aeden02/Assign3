@@ -11,10 +11,21 @@ class Router{
     public function dispatch(){
         $action ="default"; 
 
+        session_start();
+
         if(isset($_REQUEST['action'])){
             $action = $_REQUEST['action'];
+        }else{
+            header("Location: home.php?action=404");
+            exit();
         }
 
+        if(!$this->securityCheck($action)){
+            header("Location: home.php?action=login");
+            exit();
+        }
+        
+//Instatiate Contoller for Action and Call Appropriate Method
         $controller = $this->controllers[$action]; 
         $method = $_SERVER['REQUEST_METHOD'];
         if($method=='GET'){
@@ -28,6 +39,10 @@ class Router{
 
     public function addRoute($action, $controller){
         $this->controllers[$action] = $controller;
+    }
+
+    public function securityCheck($action){
+        return true; 
     }
     
     public function showErrors($debug){
